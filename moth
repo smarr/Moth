@@ -1,0 +1,7 @@
+#!/usr/bin/env python2.7
+import os
+import sys
+
+som = "./SOMns/som"
+som_args = [""] + sys.argv[1:]
+os.execvp(som, som_args)

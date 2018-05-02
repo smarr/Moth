@@ -1,0 +1,7 @@
+#!/usr/bin/env python2.7
+import os
+import sys
+
+kernan = "./kernan/Grace/grace"
+kernan_args = ["", "--ws"]
+os.execvp(kernan, kernan_args)

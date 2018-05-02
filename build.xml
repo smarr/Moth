@@ -1,0 +1,34 @@
+<project name="moth" basedir="." default="compile-all"
+    xmlns:unless="ant:unless"
+    xmlns:if="ant:if">
+
+    <property name="somns.dir" value="SOMns"/>
+    <property name="kernan.dir" value="Kernan"/>
+
+    <property name="kernan.cmd" value="msbuild"/>
+
+    <target name="clobber" description="Clobber SOMns">
+        <echo message="Clobbering Moth"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="clobber" inheritAll="false"/>
+    </target>
+
+    <target name="clean" description="Clean SOMns">
+        <echo message="Cleaning Moth"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="clean" inheritAll="false"/>
+    </target>
+
+    <target name="compile-kernan" description="Compile Kernan">
+        <echo message="Compiling Kernan"/>
+        <exec executable="${kernan.cmd}" dir="${kernan.dir}"/>
+    </target>
+
+    <target name="compile-somns" description="Compile SOMns">
+        <echo message="Compiling SOMns"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="compile" inheritAll="false"/>
+    </target>
+
+    <target name="compile" depends="compile-kernan,compile-somns" description="Compiling SOMns">
+        <echo message="Compiling Moth"/>
+    </target>
+
+</project>
