@@ -4,3 +4,6 @@
 [submodule "GraceLibrary"]
 	path = GraceLibrary
 	url = git@github.com:richard-roberts/GraceLibrary
+[submodule "kernan"]
+	path = kernan
+	url = https://mwh.nz/git/kernan
