@@ -1,3 +1,6 @@
 [submodule "SOMns"]
 	path = SOMns
 	url = git@github.com:richard-roberts/SOMns
+[submodule "GraceLibrary"]
+	path = GraceLibrary
+	url = git@github.com:richard-roberts/GraceLibrary
