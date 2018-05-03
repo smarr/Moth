@@ -6,6 +6,7 @@
     <property name="kernan.dir" value="Kernan"/>
 
     <property name="kernan.cmd" value="msbuild"/>
+    <property name="test.cmd" value="msbuild"/>
 
     <target name="clobber" description="Clobber SOMns">
         <echo message="Clobbering Moth"/>
@@ -29,6 +30,16 @@
 
     <target name="compile" depends="compile-kernan,compile-somns" description="Compiling SOMns">
         <echo message="Compiling Moth"/>
+    </target>
+
+    <target name="tests" depends="compile" description="Run moth tests">
+      <parallel threadCount="2">
+        <exec executable="./kernanWS" failonerror="true"/>
+        <exec executable="./moth" failonerror="true">
+          <arg value="GraceLibrary/Tests/testRunner.grace" />
+          <arg value="GraceLibrary/Tests/basicLanguageFeatures.grace" />
+        </exec>
+      </parallel>
     </target>
 
 </project>

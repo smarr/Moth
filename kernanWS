@@ -1,7 +1,5 @@
 #!/usr/bin/env python2.7
-import os
-import sys
+import subprocess
 
-kernan = "./kernan/Grace/grace"
-kernan_args = ["", "--ws"]
-os.execvp(kernan, kernan_args)
+kernan = ["./kernan/Grace/grace", "--ws"]
+subprocess.Popen(kernan)

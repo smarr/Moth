@@ -26,3 +26,15 @@ Once the build script finishes successfully, start Kernan in its web-socket mode
 ./kernanWS &
 ./moth GraceLibrary/hello.grace
 ```
+
+Finally, the Grace Library now provides a test runner. The program can be executed by Moth directly, in which case one should provide the path to a module to test (the module need only implement methods whose signatures begin with "test"). For example, to test the language features supported by Moth one can do:
+
+```
+./moth GraceLibrary/Test/testRunner.grace GraceLibrary/Tests/basicLanguageFeatures.grace
+``` 
+
+Note that the ANT build script now defines a "test" function that will build Kernan and Moth and then run the tests:
+
+```sh
+ant tests
+```
