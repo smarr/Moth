@@ -1,3 +1,7 @@
 # Build
 src_gen
+__pycache__
+
+# Generated files
+output
 

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash 
+
+# Get config from arguments
+SUITES=$1
+OUTER=$2
+WARMUP=$3
+INNER=$4
+
+# Set output directory
+OUTPUT_DIRECTORY=output/benchmarks/
+
+# Make the output directory
+mkdir -p $OUTPUT_DIRECTORY
+
+# Run the given benchmark suite on Moth for the given number of iterations
+for SUITE in $(echo $SUITES | tr "," "\n")
+do
+    ./moth $COMPILE_AT GraceLibrary/Benchmarks/harness.grace GraceLibrary/Benchmarks/$SUITE.grace csv $OUTER $WARMUP $INNER > $OUTPUT_DIRECTORY/$SUITE.csv
+done
+
+# Render the result
+python3 ./benchmarks/renderCompareSingles.py $OUTPUT_DIRECTORY
