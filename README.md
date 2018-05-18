@@ -2,10 +2,17 @@
 
 Note: The Moth project is under active development. Some of the information in this document represents my intention rather than the current reality.
 
-A new Grace interpreter offering high performance for long-running Grace programs. Moth is built on top of [SOMns v0.6](https://github.com/smarr/SOMns/releases/tag/v0.6.0).
+Moth is a new interpreter offering high performance for long-running Grace programs. Moth is built on top of [SOMns v0.6](https://github.com/smarr/SOMns/releases/tag/v0.6.0).
 
-See [Getting Started](#getting-started) for more information about building Moth.
+See [Getting Started](#getting-started) for more information about building Moth, and then [Running the Tests](#running-the-tests) and [Running the Benchmarks](#running-the-benchmarks) for more information about running Moth. 
 
+
+Status
+------
+
+Although we are working toward a compliant implementation, Moth doesn't yet implement all of Grace's features. In particular, our support for reuse statements (only `inherit` with literal arguments may be used) and type checking is limited (simply Boyland-style type checks on parameters are supported, but not Grace's full gradual-structural type system).
+
+Despite these drawbacks, Moth's benchmarks demonstrate impressive peak performance. 
 
 Getting Started
 ---------------
@@ -27,16 +34,19 @@ Once the build script finishes successfully, start Kernan in its web-socket mode
 ./moth GraceLibrary/hello.grace
 ```
 
-Finally, the Grace Library now provides a test runner. The program can be executed by Moth directly, in which case one should provide the path to a module to test (the module need only implement methods whose signatures begin with "test"). For example, to test the language features supported by Moth one can do:
+Support for Boyland-style type checking is turned off by default. Provide the `--boyland-checking` (or `-bc` for short) argument to Moth to enable the checking:
+
+```sh
+./moth -bc GraceLibrary/hello.grace
+```
+
+Running the Tests
+------------------
+
+A Grace test is simply a module that implements any number of methods whose signatures begin with "test". Tests can be executed on Moth, using the [Test Runner](https://github.com/richard-roberts/GraceLibrary/tree/master/Benchmarks/harness.grace) program. To use the runner, invoke Moth with two arguments: the path to the runner and the path to a Grace test:
 
 ```
 ./moth GraceLibrary/Test/testRunner.grace GraceLibrary/Tests/basicLanguageFeatures.grace
-``` 
-
-Note that the ANT build script now defines a "test" function that will build Kernan and Moth and then run the tests:
-
-```sh
-ant tests
 ```
 
 Running the Benchmarks 
