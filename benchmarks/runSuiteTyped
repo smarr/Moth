@@ -17,7 +17,7 @@ OUTPUT_DIRECTORY=output/benchmarks/$xpref
 mkdir -p $OUTPUT_DIRECTORY
 
 # Run the given benchmark suite on Moth for the given number of iterations
-./moth -bc $COMPILE_AT GraceLibrary/Benchmarks/harness.grace GraceLibrary/Benchmarks/$SUITE.grace csv $OUTER $WARMUP $INNER > $OUTPUT_DIRECTORY/typed.csv
+./moth -bc GraceLibrary/Benchmarks/harness.grace GraceLibrary/Benchmarks/$SUITE.grace csv $OUTER $WARMUP $INNER > $OUTPUT_DIRECTORY/typed.csv
 
 # Render the result
 python3 ./benchmarks/renderSuite.py $OUTPUT_DIRECTORY
