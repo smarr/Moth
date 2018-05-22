@@ -67,9 +67,14 @@ def render_suite_at_scale(directory, scale):
     Axes.set_x_range(0, max_x) 
 
     # set bounds for y-axis
-    bot = min_y
-    top = min_y + (max_y - min_y) * (scale)
-    Axes.set_y_range(bot, top) 
+    if len(sys.argv) > 2:
+        bot = int(sys.argv[2])
+        top = int(sys.argv[3])
+        Axes.set_y_range(bot, top)
+    else:
+        bot = min_y
+        top = min_y + (max_y - min_y) * (scale)
+        Axes.set_y_range(bot, top) 
     
     # Save
     filename = "resultx%2.1f" % (1 + scale)
