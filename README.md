@@ -43,7 +43,9 @@ Support for Boyland-style type checking is turned off by default. Provide the `-
 Running the Tests
 ------------------
 
-A Grace test is simply a module that implements any number of methods whose signatures begin with "test". Tests can be executed on Moth, using the [Test Runner](https://github.com/richard-roberts/GraceLibrary/tree/master/Benchmarks/harness.grace) program. To use the runner, invoke Moth with two arguments: the path to the runner and the path to a Grace test:
+A Grace test is simply a module that implements any number of methods whose signatures begin with "test". 
+
+The built-in tests can be executed by executing the [Test Runner](https://github.com/richard-roberts/GraceLibrary/tree/master/Benchmarks/harness.grace) without any arguments: `./moth GraceLibrary/Tests/testRunner.grace`. Alternatively, a single test file can be run by providing the path to that test as an argument; for example:
 
 ```
 ./moth GraceLibrary/Test/testRunner.grace GraceLibrary/Tests/basicLanguageFeatures.grace
