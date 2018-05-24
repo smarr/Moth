@@ -1,7 +1,9 @@
-#!/usr/bin/env python2.7
-import os
-import sys
+#!/usr/bin/env python3
+import subprocess, sys, os
 
-som = "./SOMns/som"
-som_args = [""] + sys.argv[1:]
-os.execvp(som, som_args)
+# Add current directory as MOTH_HOME
+env = os.environ.copy()
+env["MOTH_HOME"] = "/".join(os.path.realpath(__file__).split("/")[:-1])
+
+# Execute SOMns with the update environment
+subprocess.run(["./SOMns/som"] + sys.argv[1:], env=env)
