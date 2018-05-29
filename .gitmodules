@@ -6,4 +6,4 @@
 	url = git@github.com:richard-roberts/GraceLibrary
 [submodule "kernan"]
 	path = kernan
-	url = https://mwh.nz/git/kernan
+	url = https://github.com/mwh/kernan.git
