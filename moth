@@ -6,4 +6,5 @@ env = os.environ.copy()
 env["MOTH_HOME"] = "/".join(os.path.realpath(__file__).split("/")[:-1])
 
 # Execute SOMns with the update environment
-subprocess.run(["./SOMns/som"] + sys.argv[1:], env=env)
+# subprocess.run(["./SOMns/som"] + sys.argv[1:], env=env)
+os.execvpe("./SOMns/som", sys.argv, env)
