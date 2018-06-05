@@ -3,7 +3,7 @@
     xmlns:if="ant:if">
 
     <property name="somns.dir" value="SOMns"/>
-    <property name="kernan.dir" value="Kernan"/>
+    <property name="kernan.dir" value="kernan"/>
 
     <property name="kernan.cmd" value="msbuild"/>
     <property name="test.cmd" value="msbuild"/>
