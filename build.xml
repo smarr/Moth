@@ -5,8 +5,7 @@
     <property name="somns.dir" value="SOMns"/>
     <property name="kernan.dir" value="kernan"/>
 
-    <property name="kernan.cmd" value="msbuild"/>
-    <property name="test.cmd" value="msbuild"/>
+    <property name="kernan.cmd" value="xbuild"/>
 
     <target name="clobber" description="Clobber SOMns">
         <echo message="Clobbering Moth"/>
