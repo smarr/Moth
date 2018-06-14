@@ -16,6 +16,8 @@ From there, you might like to check out [Running the Tests](#running-the-tests) 
 Status
 ------
 
+The latest release is reflected by the `master` branch [![Build Status](https://travis-ci.org/richard-roberts/Moth.svg?branch=master)](https://travis-ci.org/richard-roberts/Moth).
+
 Although we are working toward a compliant implementation, Moth doesn't yet implement all of Grace's features. In particular, our support for reuse statements (only `inherit` with literal arguments may be used) and type checking is limited to checking only that the given object can respond-to the signatures defined by the type.
 
 Despite these drawbacks, Moth's benchmarks demonstrate impressive peak performance. 
