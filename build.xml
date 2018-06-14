@@ -1,0 +1,43 @@
+<project name="moth" basedir="." default="compile"
+    xmlns:unless="ant:unless"
+    xmlns:if="ant:if">
+
+    <property name="somns.dir" value="SOMns"/>
+    <property name="kernan.dir" value="kernan"/>
+    <property name="kernan.cmd" value="xbuild"/>
+
+    <target name="clobber" description="Clobber SOMns">
+        <echo message="Clobbering Moth"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="clobber" inheritAll="false"/>
+    </target>
+
+    <target name="clean" description="Clean SOMns">
+        <echo message="Cleaning Moth"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="clean" inheritAll="false"/>
+    </target>
+
+    <target name="compile-kernan" description="Compile Kernan">
+        <echo message="Compiling Kernan"/>
+        <exec executable="${kernan.cmd}" dir="${kernan.dir}"/>
+    </target>
+
+    <target name="compile-somns" description="Compile SOMns">
+        <echo message="Compiling SOMns"/>
+        <ant dir="${somns.dir}" useNativeBasedir="true" target="compile" inheritAll="false"/>
+    </target>
+
+    <target name="compile" depends="compile-kernan,compile-somns" description="Compiling SOMns">
+        <echo message="Compiling Moth"/>
+    </target>
+
+    <target name="tests" depends="compile" description="Run moth tests">
+      <parallel threadCount="2">
+        <exec executable="./kernanWS" failonerror="true"/>
+        <exec executable="./moth" failonerror="true">
+          <arg value="GraceLibrary/Tests/testRunner.grace" />
+          <arg value="GraceLibrary/Tests/basicLanguageFeatures.grace" />
+        </exec>
+      </parallel>
+    </target>
+
+</project>
