@@ -1,9 +1,9 @@
 [submodule "SOMns"]
 	path = SOMns
-	url = https://github.com/richard-roberts/SOMns.git
+	url = https://github.com/moth-project/moth-SOMns.git
 [submodule "GraceLibrary"]
 	path = GraceLibrary
-	url = https://github.com/richard-roberts/GraceLibrary.git
+	url = https://github.com/moth-project/GraceLibrary.git
 [submodule "kernan"]
 	path = kernan
-	url = https://github.com/mwh/kernan.git
+	url = https://github.com/moth-project/moth-kernan.git
