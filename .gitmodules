@@ -6,4 +6,4 @@
 	url = https://github.com/moth-project/GraceLibrary.git
 [submodule "kernan"]
 	path = kernan
-	url = https://github.com/moth-project/moth-kernan.git
+	url = https://github.com/mwh/kernan.git
