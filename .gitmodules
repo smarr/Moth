@@ -1,6 +1,6 @@
 [submodule "SOMns"]
 	path = SOMns
-	url = https://github.com/moth-project/moth-SOMns.git
+	url = https://github.com/smarr/SOMns.git
 [submodule "GraceLibrary"]
 	path = GraceLibrary
 	url = https://github.com/moth-project/GraceLibrary.git
